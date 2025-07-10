@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps } from 'vue'
 import FolderIcon from '@/assets/folder.svg'
+import { RouterLink } from 'vue-router'
+
 const props = defineProps({
   name: {
     type: String,
@@ -18,13 +19,19 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="folder">
+  <RouterLink class="folder" :to="{ name: 'folder', params: { folderName: name } }">
     <component :is="icon" :style="{ color }" />
     <div>{{ name }}</div>
-  </div>
+  </RouterLink>
 </template>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .folder {
   --wh-folder: 100px;
   --wh-icon-folder: 70px;
