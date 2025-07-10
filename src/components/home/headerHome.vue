@@ -4,23 +4,23 @@ import { ref, watch } from 'vue'
 const showDialog = ref(false)
 const dialogRef = ref(null)
 
-watch(showDialog, (val) => {
-  if (val) {
-    dialogRef.value?.showModal()
-  } else {
-    dialogRef.value?.close()
-  }
-})
 
 function fecharDialog() {
+  console.log('Fechando dialog')
   showDialog.value = false
 }
 </script>
 
 <template>
-  <dialog ref="dialogRef">
-    <p>Este é um dialog nativo HTML5!</p>
-    <button @click="fecharDialog">Fechar</button>
+  <dialog v-if="showDialog" class="dialogFolder">
+
+    <div class="painelDialog">
+      <p>Criar nova pasta?</p>
+      <button class="close" @click="fecharDialog">
+        <i class="ri-close-large-line"></i>
+      </button>
+    </div>
+
   </dialog>
 
   <header class="headerInt">
@@ -48,6 +48,52 @@ function fecharDialog() {
   justify-content: space-between;
   align-items: center;
   padding: var(--pG);
+}
+
+.dialogFolder {
+  position: absolute;
+  top: calc(2 * var(--hPainel));
+  left: 0;
+  min-width: var(--wG);
+  max-width: var(--wG);
+  min-height: var(--hInt);
+  max-height: var(--hInt);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  & .painelDialog {
+    position: relative;
+    min-width: 60%;
+    max-width: 60%;
+    background-color: var(--text-light);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      color: var(--text);
+      font-size: 30px;
+      cursor: pointer;
+
+      &:hover {
+        transition: all ease 0.2s;
+        background-color: var(--text);
+        color: var(--text-light);
+      }
+    }
+  }
 }
 
 .right {

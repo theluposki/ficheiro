@@ -46,6 +46,7 @@
 
   --hPainel: 64px;
   --hMain: calc(var(--hG) - 2 * var(--hPainel));
+  --hInt: calc(var(--hMain) - var(--hPainel));
 }
 
 body {
@@ -91,6 +92,7 @@ body {
 }
 
 #app {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: var(--hG);
@@ -134,7 +136,6 @@ body {
 }
 
 .page-int {
-  --hInt: calc(var(--hMain) - var(--hPainel));
   min-height: var(--hMain);
   max-height: var(--hMain);
   flex-grow: 1;
