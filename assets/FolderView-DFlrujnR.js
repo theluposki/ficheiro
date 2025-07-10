@@ -1,1 +1,0 @@
-import{u as o,c as t,t as a,b as s,o as r}from"./index-DzmLuxpQ.js";const c={class:"page"},i={__name:"FolderView",setup(n){const e=o().params.folderName||"Nova Pasta";return document.title=`Folder: ${e}`,(u,d)=>(r(),t("div",c," Foldder View: "+a(s(e)),1))}};export{i as default};
