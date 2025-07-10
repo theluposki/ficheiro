@@ -132,3 +132,12 @@ body {
   overflow-y: auto;
   padding: var(--pG);
 }
+
+.page-int {
+  --hInt: calc(var(--hMain) - var(--hPainel));
+  min-height: var(--hMain);
+  max-height: var(--hMain);
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--pG);
+}

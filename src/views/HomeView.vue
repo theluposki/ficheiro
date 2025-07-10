@@ -1,6 +1,6 @@
 <script setup>
 import GridFolders from '@/components/gridFolders.vue'
-import { shallowRef, ref } from 'vue'
+import headerHome from '@/components/home/headerHome.vue'
 
 const foldersList = [
   { name: 'Series', icon: 'FolderLock', color: 'red' },
@@ -13,7 +13,8 @@ const foldersList = [
 </script>
 
 <template>
-  <main class="page home">
+  <headerHome />
+  <main class="page-int home">
     <GridFolders :folders="foldersList" />
   </main>
 </template>
